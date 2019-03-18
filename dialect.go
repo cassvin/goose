@@ -84,7 +84,7 @@ type MySQLDialect struct{}
 
 func (m MySQLDialect) createVersionTableSQL() string {
 	return fmt.Sprintf(`CREATE TABLE %s (
-                id serial NOT NULL,
+                id bigint unsigned auto_increment unique NOT NULL,
                 version_id bigint NOT NULL,
                 is_applied boolean NOT NULL,
                 tstamp timestamp NULL default now(),
